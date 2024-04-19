@@ -1,5 +1,8 @@
 package com.example.mysplash.ui
 
+import android.util.Log
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mysplash.data.ResponseState.UiState
@@ -24,6 +27,8 @@ class SplashViewModel @Inject constructor(
     private val _splashUiState = MutableStateFlow<UiState<List<SplashPhotosItem>>>(UiState.Idle)
     val splashUiState = _splashUiState.asStateFlow()
 
+    val currentPage  = MutableStateFlow(1)
+    var currPage = currentPage.asStateFlow()
     private val _splashPhotos : MutableStateFlow<SplashPhotosItem> = MutableStateFlow(SplashPhotosItem())
 
 //    init {
@@ -31,6 +36,7 @@ class SplashViewModel @Inject constructor(
 //    }
 
     fun getSplashPhotos(page: Int, perPage: Int, orderBy: String){
+        Log.d("Rishi","getSplashPhotos $page $perPage $orderBy")
         _splashUiState.value = UiState.Loading
         viewModelScope.launch {
            val response = repo.getSplashPhotos(page, perPage, orderBy)

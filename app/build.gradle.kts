@@ -94,10 +94,19 @@ dependencies {
 
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.play.services)
-//    implementation("com.google.dagger:hilt-android:2.49")
-//    ksp("com.google.dagger:hilt-android-compiler:2.49")
-//    ksp("androidx.hilt:hilt-compiler:1.1.0")
+
     implementation(libs.androidx.hilt.navigation.compose)
-//    implementation("androidx.work:work-runtime-ktx:2.9.0")
-//    implementation("androidx.hilt:hilt-work:1.2.0-alpha01")
+
+    //Paging
+    implementation(libs.androidx.paging.compose)
+    implementation(libs.androidx.paging.runtime)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+
+    // To use Kotlin Symbol Processing (KSP)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.paging)
+
 }
