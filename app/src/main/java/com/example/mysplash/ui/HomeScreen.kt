@@ -41,24 +41,10 @@ fun HomeScreenContent(
     splashPhotos : List<SplashPhotosItem>,
     splashUiEvent: (SplashUiEvent) -> Unit
 ) {
-    val scrollState = rememberLazyListState()
-//    var itemSize by rememberSaveable(splashPhotos.size) {
-//        mutableStateOf(0)
-//    }
-//    itemSize = if(splashPhotos.size % 2 == 0){
-//        splashPhotos.size / 2
-//    }
-//    else{
-//        (splashPhotos.size / 2) + 1
-//    }
-//    LaunchedEffect(splashPhotos) {
-//
-//    }
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
     ) {
-//        OrderByCard(splashUiEvent = splashUiEvent)
         LazyVerticalStaggeredGrid(columns = StaggeredGridCells.Adaptive(150.dp)) {
             val itemSize = if(splashPhotos.size % 2 == 0){
                 splashPhotos.size / 2
