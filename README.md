@@ -2,6 +2,6 @@
 No Such Prerequisuite
 
 #Library Used ->
-Gson -> 
-Retrofit
-Hilt
+- Gson,
+- Retrofit
+- Hilt
