@@ -1,10 +1,8 @@
-package com.example.mysplash.domain
+package com.example.mysplash.data.remote
 
 import com.example.mysplash.data.ResponseState.ResponseState
 import com.example.mysplash.data.ResponseState.getApiResponseState
-import com.example.mysplash.data.remote.SplashApi
-import com.example.mysplash.data.remote.SplashPhotosItem
-import com.example.mysplash.data.remote.SplashPhotosResponse
+import com.example.mysplash.domain.SplashRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

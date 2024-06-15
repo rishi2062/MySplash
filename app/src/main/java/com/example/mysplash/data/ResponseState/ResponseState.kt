@@ -1,5 +1,6 @@
 package com.example.mysplash.data.ResponseState
 
+import okio.IOException
 import retrofit2.Response
 
 
@@ -20,14 +21,10 @@ fun <T> ResponseState<T>.toUiState() : UiState<T>{
 }
 
 suspend fun <T> getApiResponseState(
-    onSuccess: suspend (Response<T>) -> Unit = {},
-    onFailure: suspend (Exception) -> Unit = {},
     request: suspend () -> Response<T>
 ) : ResponseState<T>{
     return try {
         val response = request()
-        onSuccess(response)
-
         if(response.isSuccessful){
             if (response.body() != null){
                 ResponseState.Success(response.body()!!)
@@ -51,8 +48,10 @@ suspend fun <T> getApiResponseState(
 //            }
 //        }
     }
+    catch (e : IOException){
+        ResponseState.NoInternet
+    }
     catch (e: Exception){
-        onFailure(e)
         ResponseState.Error(e.message ?: "An error occurred")
     }
 }

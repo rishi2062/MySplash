@@ -3,13 +3,11 @@ package com.example.mysplash.data.di
 import com.example.mysplash.data.remote.SplashApi
 import com.example.mysplash.data.util.Constants.BASE_URL
 import com.example.mysplash.domain.SplashRepo
-import com.example.mysplash.domain.SplashRepoImplementation
+import com.example.mysplash.data.remote.SplashRepoImplementation
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import retrofit2.CallAdapter
-import retrofit2.CallAdapter.Factory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
